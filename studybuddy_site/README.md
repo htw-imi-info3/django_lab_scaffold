@@ -96,7 +96,9 @@ Libraries Installieren: django u.a.
 The scaffold contains a couple of example tests cases: 
 
 - unit tests using the django test libraries in tests/
-- acceptance tests using selenium in 
+- acceptance tests using selenium in tests_selenium
+
+the selenium tests needs geckodriver!
 ## Authentication and Authorization
 ### Login/Authentication
 

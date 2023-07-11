@@ -37,6 +37,27 @@ class Meetup(models.Model):
     duration = models.DurationField(default=datetime.timedelta(hours=1))
     participants = models.ManyToManyField(settings.AUTH_USER_MODEL)
     
+    YEAR_IN_SCHOOL_CHOICES = [
+        ("FR", "Freshman"),
+        ("SO", "Sophomore"),
+        ("JR", "Junior"),
+        ("SR", "Senior"),
+        ("GR", "Graduate"),
+    ]
+    year_in_school = models.CharField(
+        max_length=2,
+        choices=YEAR_IN_SCHOOL_CHOICES,
+        default="FR",
+    )
+    
+    class Suit(models.IntegerChoices):
+        DIAMOND = 1
+        SPADE = 2
+        HEART = 3
+        CLUB = 4
+
+    suit = models.IntegerField(choices=Suit.choices, default=3)
+    
     class Meta:
         ordering = ["title"]
 
